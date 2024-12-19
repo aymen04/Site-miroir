@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+:root {
+  --house--size: $house--size;
+  --foundation--height: $house-foundation--height;
+  --foundation--width: $house-foundation--width;
+}
+
+body {
+  background-color: #414061;
+  color: #fcfbff;
+  font-family: "Inconsolata", monospace;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr minmax(min-content, 40px);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+}
+
+main {
+  display: grid;
+  grid-template-rows: minmax(300px, 1fr) 10vh;
+  grid-gap: 3vh;
+  height: 100%;
+}
+main #artboard {
+  align-items: flex-end;
+}
+main #artboard .figure {
+  position: relative;
+  height: 100%;
+  width: 100vw;
+}
+main #artboard .figure-container {
+  transform: translate(calc(100vw - 50% - 145px), 30vh);
+}
+main #artboard .figure .ground__shadow {
+  fill: #393853;
+}
+main #artboard .figure .ground__shadow[shadow="1"] {
+  transform: translate(calc((175px - var(--foundation--width)) * -1), 0);
+}
+.ready main #artboard .figure .ground__shadow[shadow="1"] {
+  transition: transform 250ms 50ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .tree[tree="1"] {
+  transform: translate(calc((175px - var(--foundation--width)) / 2), 18px);
+}
+.ready main #artboard .figure .tree[tree="1"] {
+  transition: transform 250ms 50ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .tree[tree="2"] {
+  transform: translate(calc(178px - (175px - var(--foundation--width)) / 1.1), 53px) scale(0.7);
+}
+.ready main #artboard .figure .tree[tree="2"] {
+  transition: transform 250ms 50ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .tree__fooliage {
+  fill: #ff986d;
+}
+main #artboard .figure .tree__branch, main #artboard .figure .tree__trunk {
+  fill: #552427;
+}
+main #artboard .figure .shrub[shrub="1"] {
+  transform: translate(calc(49px + (175px - var(--foundation--width)) / 2), 68px) scale(0.55);
+}
+.ready main #artboard .figure .shrub[shrub="1"] {
+  transition: transform 250ms 75ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .shrub[shrub="2"] {
+  transform: translate(calc(130px - (175px - var(--foundation--width)) / 2), 102px) scale(0.3);
+}
+.ready main #artboard .figure .shrub[shrub="2"] {
+  transition: transform 250ms 50ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .shrub[shrub="3"] {
+  transform: translate(calc(180px - (175px - var(--foundation--width)) / 2), 83px) scale(0.4);
+}
+.ready main #artboard .figure .shrub[shrub="3"] {
+  transition: transform 250ms 125ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .shrub[shrub="4"] {
+  transform: translate(calc(185px - (175px - var(--foundation--width)) / 2), 57px) scale(0.6);
+}
+.ready main #artboard .figure .shrub[shrub="4"] {
+  transition: transform 250ms 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .shrub[shrub="5"] {
+  transform: translate(calc(235px - (175px - var(--foundation--width)) / 2), 99px) scale(0.3);
+}
+.ready main #artboard .figure .shrub[shrub="5"] {
+  transition: transform 250ms 75ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .shrub__part {
+  fill: #ff986d;
+}
+main #artboard .figure .foundation__pole--front {
+  fill: #b8b9ea;
+}
+.ready main #artboard .figure .foundation__pole--front {
+  transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__pole--back {
+  fill: #fcfbff;
+}
+.ready main #artboard .figure .foundation__pole--back {
+  transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__pole[pole="1"] {
+  transform: translate(calc(75px + (175px - var(--foundation--width)) / 2), 143px) rotate(180deg);
+}
+.ready main #artboard .figure .foundation__pole[pole="1"] {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__pole[pole="1"] .foundation__pole--front {
+  width: 10px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__pole[pole="1"] .foundation__pole--back {
+  width: 3px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__pole[pole="2"] {
+  transform: translate(calc(120px + (175px - var(--foundation--width)) / 2), 143px) rotate(180deg);
+}
+.ready main #artboard .figure .foundation__pole[pole="2"] {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__pole[pole="2"] .foundation__pole--front {
+  width: 10px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__pole[pole="2"] .foundation__pole--back {
+  width: 3px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__pole[pole="3"] {
+  transform: translate(calc(154px - (175px - var(--foundation--width)) / 2), 143px) rotate(180deg);
+}
+.ready main #artboard .figure .foundation__pole[pole="3"] {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__pole[pole="3"] .foundation__pole--front {
+  width: 10px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__pole[pole="3"] .foundation__pole--back {
+  width: 7px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__pole[pole="4"] {
+  transform: translate(calc(206px - (175px - var(--foundation--width)) / 2), 143px) rotate(180deg);
+}
+.ready main #artboard .figure .foundation__pole[pole="4"] {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__pole[pole="4"] .foundation__pole--front {
+  width: 10px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__pole[pole="4"] .foundation__pole--back {
+  width: 7px;
+  height: var(--foundation--height);
+}
+main #artboard .figure .foundation__floor {
+  fill: #d5d3f7;
+  transform: translate(calc(47px + (175px - var(--foundation--width)) / 2), calc(136px - var(--foundation--height)));
+}
+.ready main #artboard .figure .foundation__floor {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__floor rect {
+  height: 7px;
+}
+main #artboard .figure .foundation__floor rect:nth-of-type(1) {
+  width: var(--foundation--width);
+}
+.ready main #artboard .figure .foundation__floor rect:nth-of-type(1) {
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .foundation__floor rect:nth-of-type(2) {
+  fill: #fcfbff;
+  width: 7px;
+  transform: translate(calc(53px - (175px - var(--foundation--width)) / 2.5), 0);
+}
+.ready main #artboard .figure .foundation__floor rect:nth-of-type(2) {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .house {
+  fill: #b8b9ea;
+  transform: translate(calc(71px + (64px - var(--house--size)) / 2), calc(37px - var(--foundation--height)));
+}
+.ready main #artboard .figure .house {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .house__side__topwindow {
+  fill: #414061;
+}
+main #artboard .figure .house__side__window {
+  fill: #414061;
+  height: 40px;
+  width: 24px;
+  transform: translate(20px, 30px);
+}
+main #artboard .figure .house__entrance {
+  transform: translate(65px, 14px);
+}
+main #artboard .figure .house__entrance__wall {
+  fill: #b8b9ea;
+  height: 86px;
+  width: var(--house--size);
+}
+.ready main #artboard .figure .house__entrance__wall {
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .house__entrance__sliding-door {
+  transform: translate(1px, 8px);
+}
+main #artboard .figure .house__entrance__sliding-door__frame {
+  fill: #fcfbff;
+  height: 78px;
+  width: 64px;
+}
+main #artboard .figure .house__entrance__sliding-door__glass {
+  fill: #414061;
+  height: 70px;
+  width: 16px;
+}
+main #artboard .figure .house__entrance__sliding-door__glass[glass="1"] {
+  transform: translate(4px, 4px);
+}
+main #artboard .figure .house__entrance__sliding-door__glass[glass="2"] {
+  transform: translate(24px, 4px);
+}
+main #artboard .figure .house__entrance__sliding-door__glass[glass="3"] {
+  transform: translate(44px, 4px);
+}
+main #artboard .figure .house__protruding-part {
+  transform: translate(calc(66px - (64px - var(--house--size))), 14px);
+}
+.ready main #artboard .figure .house__protruding-part {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .house__protruding-part__side-wall {
+  fill: #d5d3f7;
+  height: 86px;
+  width: 64px;
+}
+main #artboard .figure .house__protruding-part__wall {
+  fill: #fcfbff;
+  height: 86px;
+  width: 32px;
+  transform: translate(32px, 0);
+}
+main #artboard .figure .house__protruding-part__window {
+  fill: #414061;
+  height: 40px;
+  width: 24px;
+  transform: translate(calc(32px + 5px), 16px);
+}
+main #artboard .figure .house__roof {
+  --roof--length: 64px;
+  fill: #fcfbff;
+  transform: translate(33px, -12px);
+}
+main #artboard .figure .house__roof__tiles {
+  height: 26px;
+  width: calc(var(--roof--length) - (64px - var(--house--size)));
+  transform: skew(52deg);
+}
+.ready main #artboard .figure .house__roof__tiles {
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .house__roof__tower {
+  transform: translate(calc(20px - (64px - var(--house--size)) / 2.25), 0);
+}
+.ready main #artboard .figure .house__roof__tower {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+main #artboard .figure .house__roof__tower__side-wall {
+  fill: #b8b9ea;
+}
+main #artboard .figure .house__roof__tower__front-wall {
+  fill: #d5d3f7;
+}
+main #artboard .figure .house__roof__tower__roof {
+  height: 9px;
+  width: 25px;
+  transform: translate(12px, -12px) skew(55deg);
+}
+main #artboard .figure .house__roof__tower__topwindow {
+  fill: #414061;
+}
+main #artboard .figure .house__roof__tower__window {
+  fill: #414061;
+  height: 7px;
+  width: 17px;
+  transform: translate(30px, 0);
+}
+main #controls {
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+main #controls #house-size-slider {
+  background-color: #fcfbff;
+}
+main #controls #house-size-slider .noUi-handle {
+  border-color: #fcfbff;
+}
+main #controls #foundation-height-slider {
+  background-color: #ff986d;
+}
+main #controls #foundation-height-slider .noUi-handle {
+  border-color: #ff986d;
+}
+main #controls #foundation-width-slider {
+  background-color: #b8b9ea;
+}
+main #controls #foundation-width-slider .noUi-handle {
+  border-color: #b8b9ea;
+}
+main #controls .controller {
+  flex: 1;
+  margin: 0 3vw;
+  min-width: 70px;
+  max-width: 120px;
+  border: unset;
+  box-shadow: unset;
+  height: 2px;
+}
+main #controls .controller .noUi-handle {
+  background-color: #414061;
+  border-radius: 0;
+  border-width: 2px;
+  box-shadow: unset;
+  width: 10px;
+  height: 10px;
+  right: -8px;
+  top: -4px;
+}
+main #controls .controller .noUi-handle::before, main #controls .controller .noUi-handle::after {
+  content: unset;
+}
+
+footer {
+  padding: 0 1rem;
+}
+
+a {
+  color: #b8b9ea;
+}
+
+main #artboard, main #controls {
+  display: flex;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=maison.css.map */

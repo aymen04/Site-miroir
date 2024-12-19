@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+// Base
+$primary: #414061;
+$primary--light: #b8b9ea;
+$primary--lighter: #d5d3f7;
+$primary--dark: #393853;
+$secondary: #ff986d;
+$base: #fcfbff;
+
+$transition-easing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+// Figure
+$ground-shadow: $primary--dark;
+$tree-fooliage: $secondary;
+$tree-branch: #552427;
+$house: $primary--light;
+$house--size: 64px;
+$house-foundation: $house;
+$house-foundation--light: $primary--lighter;
+$house-foundation--lighter: $base;
+$house-foundation--height: 42px;
+$house-foundation--width: 175px;
+$house-wall: $house-foundation--light;
+$house-wall--light: $house-foundation--lighter;
+$house-roof: $base;
+$house-window: $primary;
+
+:root {
+  --house--size: $house--size;
+  --foundation--height: $house-foundation--height;
+  --foundation--width: $house-foundation--width;
+}
+
+body {
+  background-color: $primary;
+  color: $base;
+  font-family: 'Inconsolata', monospace;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr minmax(min-content, 40px);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+}
+
+main {
+  display: grid;
+  grid-template-rows: minmax(300px, 1fr) 10vh;
+  grid-gap: 3vh;
+  height: 100%;
+  
+  #artboard {
+    @extend %flex-center;
+    align-items: flex-end;
+    
+    .figure {
+      position: relative;
+      height: 100%;
+      width: 100vw;
+      
+      // Groups
+      &-container {
+        transform: translate(calc(calc(100vw - 50%) - 145px), 30vh);
+      }
+      
+      // Elements
+      .ground {
+        &__shadow {
+          fill: $ground-shadow;
+          
+          &[shadow="1"] {
+            transform: translate(calc(calc(#{$house-foundation--width} - var(--foundation--width)) * -1), 0);
+            
+            .ready & {
+              transition: transform 250ms 50ms $transition-easing-function;
+            }
+          }
+        }
+      }
+      
+      .tree {
+        &[tree="1"] {
+          transform: translate(calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2), 18px);
+          
+          .ready & {
+            transition: transform 250ms 50ms $transition-easing-function;
+          }
+        }
+        
+        &[tree="2"] {
+          transform: translate(calc(178px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 1.1)), 53px) scale(.7);
+          
+          .ready & {
+            transition: transform 250ms 50ms $transition-easing-function;
+          }
+        }
+        
+        &__fooliage {
+          fill: $tree-fooliage;
+        }
+
+        &__branch, &__trunk {
+          fill: $tree-branch;
+        }
+      }
+      
+      .shrub {
+        &[shrub="1"] {
+          transform: translate(calc(49px + calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 68px) scale(.55);
+          
+          .ready & {
+            transition: transform 250ms 75ms $transition-easing-function;
+          }
+        }
+        
+        &[shrub="2"] {
+          transform: translate(calc(130px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 102px) scale(.3);
+          
+          .ready & {
+            transition: transform 250ms 50ms $transition-easing-function;
+          }
+        }
+        
+        &[shrub="3"] {
+          transform: translate(calc(180px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 83px) scale(.4);
+          
+          .ready & {
+            transition: transform 250ms 125ms $transition-easing-function;
+          }
+        }
+        
+        &[shrub="4"] {
+          transform: translate(calc(185px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 57px) scale(.6);
+          
+          .ready & {
+            transition: transform 250ms 100ms $transition-easing-function;
+          }
+        }
+        
+        &[shrub="5"] {
+          transform: translate(calc(235px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 99px) scale(.3);
+          
+          .ready & {
+            transition: transform 250ms 75ms $transition-easing-function;
+          }
+        }
+        
+        &__part {
+          fill: $tree-fooliage;
+        }
+      }
+      
+      .foundation {
+        &__pole {
+          &--front {
+            fill: $house-foundation;
+            
+            .ready & {
+              transition: height 250ms $transition-easing-function;
+            }
+          }
+          
+          &--back {
+            fill: $house-foundation--lighter;
+            
+            .ready & {
+              transition: height 250ms $transition-easing-function;
+            }
+          }
+          
+          &[pole="1"] {
+            transform: translate(calc(75px + calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 143px) rotate(180deg);
+          
+            .ready & {
+              transition: transform 250ms $transition-easing-function;
+            }
+            
+            .foundation__pole--front {
+              width: 10px;
+              height: var(--foundation--height);
+            }
+            
+            .foundation__pole--back {
+              width: 3px;
+              height: var(--foundation--height);
+            }
+          }
+          
+          &[pole="2"] {
+            transform: translate(calc(120px + calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 143px) rotate(180deg);
+            
+            .ready & {
+              transition: transform 250ms $transition-easing-function;
+            }
+            
+            .foundation__pole--front {
+              width: 10px;
+              height: var(--foundation--height);
+            }
+            
+            .foundation__pole--back {
+              width: 3px;
+              height: var(--foundation--height);
+            }
+          }
+          
+          &[pole="3"] {
+            transform: translate(calc(154px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 143px) rotate(180deg);
+            
+            .ready & {
+              transition: transform 250ms $transition-easing-function;
+            }
+            
+            .foundation__pole--front {
+              width: 10px;
+              height: var(--foundation--height);
+            }
+            
+            .foundation__pole--back {
+              width: 7px;
+              height: var(--foundation--height);
+            }
+          }
+          
+          &[pole="4"] {
+            transform: translate(calc(206px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), 143px) rotate(180deg);
+            
+            .ready & {
+              transition: transform 250ms $transition-easing-function;
+            }
+            
+            .foundation__pole--front {
+              width: 10px;
+              height: var(--foundation--height);
+            }
+            
+            .foundation__pole--back {
+              width: 7px;
+              height: var(--foundation--height);
+            }
+          }
+        }
+        
+        &__floor {
+          fill: $house-foundation--light;
+          transform: translate(calc(47px + calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2)), calc(136px - var(--foundation--height)));
+
+          .ready & {
+            transition: transform 250ms $transition-easing-function;
+          }
+          
+          rect {
+            height: 7px;
+          }
+          
+          rect:nth-of-type(1) {
+            width: var(--foundation--width);
+            
+            .ready & {
+              transition: width 250ms $transition-easing-function;
+            }
+          }
+          
+          rect:nth-of-type(2) {
+            fill: $house-foundation--lighter;
+            width: 7px;
+            transform: translate(calc(53px - calc(calc(#{$house-foundation--width} - var(--foundation--width)) / 2.5)), 0);
+
+            .ready & {
+              transition: transform 250ms $transition-easing-function;
+            }
+          }
+        }
+      }
+      
+      .house {
+        fill: $house;
+        transform: translate(calc(71px + calc(calc(#{$house--size} - var(--house--size)) / 2)), calc(37px - var(--foundation--height)));
+
+        .ready & {
+          transition: transform 250ms $transition-easing-function;
+        }
+        
+        &__side {
+          &__topwindow {
+            fill: $house-window;
+          }
+          
+          &__window {
+            fill: $house-window;
+            height: 40px;
+            width: 24px;
+            transform: translate(20px, 30px);
+          }
+        }
+
+        &__entrance {
+          transform: translate(65px, 14px);
+          
+          &__wall {
+            fill: $house;
+            height: 86px;
+            width: var(--house--size);
+            
+            .ready & {
+              transition: width 250ms $transition-easing-function;
+            }
+          }
+          
+          &__sliding-door {
+            transform: translate(1px, 8px);
+            
+            &__frame {
+              fill: $house-foundation--lighter;
+              height: 78px;
+              width: $house--size;
+            }
+            
+            &__glass {
+              fill: $house-window;
+              height: 70px;
+              width: 16px;
+              
+              &[glass="1"] {
+                transform: translate(4px, 4px);
+              }
+              
+              &[glass="2"] {
+                transform: translate(24px, 4px);
+              }
+              
+              &[glass="3"] {
+                transform: translate(44px, 4px);
+              }
+            }
+          }
+        }
+        
+        &__protruding-part {
+          transform: translate(calc(66px - calc(#{$house--size} - var(--house--size))), 14px);
+
+          .ready & {
+            transition: transform 250ms $transition-easing-function;
+          }
+          
+          &__side-wall {
+            fill: $house-wall;
+            height: 86px;
+            width: $house--size;
+          }
+          
+          &__wall {
+            fill: $house-wall--light;
+            height: 86px;
+            width: $house--size / 2;
+            transform: translate($house--size / 2, 0);
+          }
+          
+          &__window {
+            fill: $house-window;
+            height: 40px;
+            width: 24px;
+            transform: translate(calc(#{$house--size / 2} + 5px), 16px);
+          }
+        }
+        
+        &__roof {
+          --roof--length: 64px;
+          fill: $house-roof;
+          transform: translate(33px, -12px);
+          
+          &__tiles {
+            height: 26px;
+            width: calc(var(--roof--length) - calc(#{$house--size} - var(--house--size)));
+            transform: skew(52deg);
+          
+            .ready & {
+              transition: width 250ms $transition-easing-function;
+            }
+          }
+          
+          &__tower {
+            transform: translate(calc(20px - calc(calc(#{$house--size} - var(--house--size)) / 2.25)), 0);
+    
+            .ready & {
+              transition: transform 250ms $transition-easing-function;
+            }
+            
+            &__side-wall {
+              fill: $house;
+            }
+            
+            &__front-wall {
+              fill: $house-wall;
+            }
+            
+            &__roof {
+              height: 9px;
+              width: 25px;
+              transform: translate(12px, -12px) skew(55deg);
+            }
+            
+            &__topwindow {
+              fill: $house-window;
+            }
+            
+            &__window {
+              fill: $house-window;
+              height: 7px;
+              width: 17px;
+              transform: translate(30px, 0);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  #controls {
+    @extend %flex-center;
+    flex-wrap: wrap;
+    padding-top: .5rem;
+    
+    #house-size-slider {
+      background-color: $base;
+      
+      .noUi-handle {
+        border-color: $base;
+      }
+    }
+      
+    #foundation-height-slider {
+      background-color: $secondary;
+      
+      .noUi-handle {
+        border-color: $secondary;
+      }
+    }
+      
+    #foundation-width-slider {
+      background-color: $primary--light;
+      
+      .noUi-handle {
+        border-color: $primary--light;
+      }
+    }
+    
+    .controller {
+      flex: 1;
+      margin: 0 3vw;
+      min-width: 70px;
+      max-width: 120px;
+      border: unset;
+      box-shadow: unset;
+      height: 2px;
+      
+      .noUi-handle {
+        background-color: $primary;
+        border-radius: 0;
+        border-width: 2px;
+        box-shadow: unset;
+        width: 10px;
+        height: 10px;
+        right: -8px;
+        top: -4px;
+        
+        &::before, &::after {
+          content: unset;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 0 1rem;
+}
+
+a {
+  color: $primary--light;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+}
